@@ -5,14 +5,29 @@ function wacr(name){
 function wacr_names(){
 }
 
-function poll(){
-  console.log("polling");
-  http.get(wacr("poll"), function(res) {
+function wacr_get(which,cb) {
+  var data = '';
+  http.get(wacr(which), function(res) {
     console.log("Got response: " + res.statusCode);
-    res.on('data', function() { /* do nothing */ });
+    res.on('data', function(d) { 
+    	console.log('on data')
+      data += d;
+    });
+
+    res.on('end', function() {
+    	console.log('on end');
+    	cb(data)
+    })
   }).on('error', function(e) {
     console.log("Got error: " + e.message);
   });
+}
+
+function poll(){
+  console.log("polling");
+  wacr_get('poll', function (data) {
+  	console.log(data);
+  })
 }
 function testAllCalls(){
   http.get(wacr("names"), function(res) {
