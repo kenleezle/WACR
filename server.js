@@ -1,5 +1,7 @@
 // GO SPEED WACR GOOOOOO
 
+var wacr = require('./wacr')
+
 var express = require('express');
 var app = express();
 
