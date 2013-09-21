@@ -4,7 +4,7 @@ function poll(){
   console.log("polling");
   http.get("http://localhost:10700/poll", function(res) {
     console.log("Got response: " + res.statusCode);
-    //poll(res);
+    res.on('data', function() { /* do nothing */ });
   }).on('error', function(e) {
     console.log("Got error: " + e.message);
   });
