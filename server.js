@@ -49,6 +49,20 @@ app.get('/version', function (req,res) {
 app.post('/report', function(req,res) {
 	//CLIENT REPORTS AN EVENT TO THE SERVER
 });
+app.post('/time', function(req,res) {
+	//CLIENT REPORTS AN EVENT TO THE SERVER
+});
+app.post('/names', function(req,res) {
+  res.write('names');
+  res.write('poll');
+  res.write('task');
+  res.write('update');
+  res.write('version');
+  res.write('report');
+  res.write('scripts');
+  res.write('time');
+  res.end();
+});
 
 app.post('/authenticate', function(req,res) {
 	////////////
