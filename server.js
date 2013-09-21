@@ -19,6 +19,7 @@ app.get('/poll', function(req, res){
 	//CHECK TIME
 	//CHECK VERSION OF SCRIPTS
 	//SERVER RESPONDS BACK WITH DIRECTIONS FOR THE CLIENT
+  console.log('received poll request');
   res.send('hello world');
 });
 
