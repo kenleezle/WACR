@@ -4,6 +4,10 @@ var express = require('express');
 var app = express();
 
 app.configure(function(){
+  app.use(function (req,res,next) {
+  	console.log('request');
+  	next();
+  })
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(express.errorHandler());
